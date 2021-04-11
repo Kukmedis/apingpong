@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  apingpong:
+    build: .
+    environment:
+      - PROFILE=DEV
+    ports:
+      - "80:80"
+  firestore_emulator:
+    image: mtlynch/firestore-emulator
+    ports:
+      - "8200:8200"
+    environment:
+      - FIRESTORE_PROJECT_ID=apingpong
+      - PORT=8200
